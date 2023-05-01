@@ -36,12 +36,14 @@ module.exports = function (app, passport, db) {
     })
   })
 
-  app.put('/tasks', (req, res) => {
-    db.collection('tasks').findOneAndUpdate({ task: req.body.done }, (err, result) => {
-      if (err) return res.send(500, err)
-      res.send('Tasks deleted!')
-    })
-  })
+  app.put('/tasks', function(req, res) {
+    var taskId = req.body.taskId;
+    db.collection('tasks').findOneAndUpdate({_id: ObjectId(taskId)}, {$set: {done: req.body.done}}, function(err, result) {
+      if (err) throw err;
+      res.redirect('/');
+    });
+  });
+ 
 
   // =============================================================================
   // AUTHENTICATE (FIRST LOGIN) ==================================================
