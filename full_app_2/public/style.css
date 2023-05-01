@@ -1,0 +1,57 @@
+html {
+  background-image: url(https://cdn.wallpapersafari.com/60/51/UujO7L.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1175px;
+}
+
+body {
+  padding-top: 80px;
+  word-wrap: break-word;
+  padding-top: 10px;
+  background-image: url(https://images.unsplash.com/photo-1601662528567-526cd06f6582?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhaW4lMjBwYXBlcnxlbnwwfHwwfHw%3D&w=1000&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  height: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tasklist {
+  font-size: 2.2rem;
+  width: 35%;
+}
+.task-submit {
+  position: fixed;
+  bottom: 50px;
+  left: 40%;
+  font-size: 2rem;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+}
+
+.tasks {
+  margin-bottom: 200px;
+}
+
+.task {
+  list-style-type: lower-roman;
+} 
+.col-sm-3 {
+  margin-right: 20px;
+}
+.main-page {
+  font-size: 4rem;
+  margin-bottom: 50px;
+}
+.fa-trash:before {
+  content: '\f00d'
+}
+.jumbotron {
+  background: white;
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Notion Rip</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+      <h1 class="main-page"><span class="fa fa-list"></span> Notion</h1>
+    </div>
+
+    <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-3">
+        <div class="well">
+          <h3><span class="fa fa-user"></span>Welcome!</h3>
+
+          <% if (user.local.email) { %>
+            <p>
+              <strong>id</strong>: <%= user._id %><br>
+                <strong>email</strong>: <%= user.local.email %><br>
+            </p>
+
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+            <a href="/unlink/local" class="btn btn-default">Unlink Account</a>
+            <% } else { %>
+              <a href="/connect/local" class="btn btn-default">Connect Local</a>
+              <% } %>
+
+        </div>
+      </div>
+
+      <div class="tasklist col-sm-6">
+        <h3>To Do</h3>
+        <ul class="tasks">
+          <% for(var i=0; i<tasks.length; i++) {%>
+            <li class="task">
+              <span>
+                <%= tasks[i].task %>
+              </span>
+              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+            </li>
+            <% } %>
+        </ul>
+      </div>
+
+      <div class="tasklist col-sm-6">
+        <h3>Done</h3>
+        <ul class="tasks">
+          <% for(var i=0; i<tasks.length; i++) {%>
+            <li class="task">
+              <span>
+                <%= tasks[i].done %>
+              </span>
+            </li>
+            <% } %>
+        </ul>
+      </div>
+
+      <div class="task-submit">
+        <h2>Enter Task</h2>
+        <% if (user.local.email) { %>
+          <form action="/tasks" method="POST">
+            <input class="hidden" type="text" value="<%= user.local.email %>" name="name">
+            <input type="text" placeholder="tasks" name="task">
+            <button type="submit">Submit</button>
+          </form>
+
+          <% } %>
+
+      </div>
+
+      <script src="main.js"></script>
+
+</body>
+
+</html>
