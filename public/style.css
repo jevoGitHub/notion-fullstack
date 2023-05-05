@@ -13,7 +13,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.hidden {
+  text-decoration-line: black line-through;
+}
 img {
   height: 200px;
 }
